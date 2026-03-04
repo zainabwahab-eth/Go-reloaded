@@ -11,12 +11,12 @@ func TestBase(t *testing.T) {
 		expected string
 	}{
 		{
-			name:     "hex conversion",
-			input:    "1E (hex) files were added",
-			expected: "30 files were added",
+			name:     "test 1",
+			input:    "If I make you BREAKFAST IN BED (low, 3) just say thank you instead of: how (cap) did you get in my house (up, 2) ?",
+			expected: "If I make you breakfast in bed just say thank you instead of: How did you get in MY HOUSE?",
 		},
 		{
-			name:     "bin conversion",
+			name:     "test 2",
 			input:    "It has been 10 (bin) years",
 			expected: "It has been 2 years",
 		},
