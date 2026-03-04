@@ -1,7 +1,6 @@
 package operations
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -15,7 +14,6 @@ func CheckPunctuation(index int, inputSlice []string, mapCheck map[int]bool) ([]
 	}
 
 	in := 0
-
 	for in < len(word) && strings.ContainsRune(punctuation, rune(word[in])) {
 		in++
 	}
@@ -24,21 +22,15 @@ func CheckPunctuation(index int, inputSlice []string, mapCheck map[int]bool) ([]
 		return inputSlice, word
 	}
 
+	// loop back to find the first non-deleted word
 	previous := index - 1
-	if mapCheck[index-1] == true {
-		previous = index - 2
+	for previous > 0 && mapCheck[previous] {
+		previous--
 	}
 
-	fmt.Println(word)
-	//add punctuation to previous word
 	inputSlice[previous] += word[:in]
-
-	//remove punctuation from current word
 	word = word[in:]
-
 	inputSlice[index] = word
-	fmt.Println("result", inputSlice, word)
 
 	return inputSlice, word
-
 }
